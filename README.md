@@ -1,20 +1,18 @@
 # web-nuxt
 
-## Build Setup
+## Serve static
 
 ```bash
 # install dependencies
 $ yarn install
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+# generate static files
+$ yarn build --target static
+$ yarn export
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+# servie with docker(apache)
+$ sudo docker build -t my-apache2 .
+$ sudo docker run -p 80:80 my-apache2\n
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
