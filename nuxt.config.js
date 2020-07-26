@@ -30,6 +30,13 @@ export default {
   */
   css: [
   ],
+
+  // static router path
+
+  router: {
+    base: '/2020/'
+  },
+
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
@@ -62,6 +69,9 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {},
+  generate: {
+    routes: Array(57).fill().map((_, i) => `/dynamic/${i + 1}`)
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
