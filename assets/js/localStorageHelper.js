@@ -18,15 +18,13 @@ const helper = {
     if (this.checkData() === false) {
       console.log('데이터 없음')
       try {
-        // const res = await this.$jsonp('/sunrin.graphics/2020/data.json')
-        // const res = await request('/data.json')
         const res = await axios.get('/2020/data.json')
         console.log(res)
         localStorage.setItem('user', JSON.stringify(res))
         console.log(this.checkData())
         return 205
       } catch {
-        return 501 // 인터넷 에러
+        return 501
       }
     } else {
       return 200
