@@ -16,6 +16,11 @@
         <p class="description">
           {{ description }}
         </p>
+        <div v-for="index in name.length" :key="index" class="is-hidden-tablet user">
+          <p>{{ name[index-1] }}</p>
+          <p>{{ email[index-1] }}</p>
+          <p>{{ etc[index-1] }}</p>
+        </div>
       </div>
     </div>
     <div class="column is-3">
@@ -112,6 +117,14 @@ export default {
   max-width: 250px;
   height: auto;
   p {
+    margin: 10px;
+    word-wrap: break-word;
+  }
+
+}
+.user {
+    background-color: #E7E7E7;
+      p {
     margin: 10px;
     word-wrap: break-word;
   }

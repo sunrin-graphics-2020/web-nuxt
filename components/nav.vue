@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item brand-text" href="/2020">
-          <img src="~assets/icon/verticla logo_blue.png">
+          <img src="~assets/icon/paran_logo.png">
         </a>
         <div
           :class="{ 'is-active': showNav }"
@@ -24,7 +24,7 @@
           <a class="navbar-item" href="/2020/contact">
             Contact
           </a>
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="/2020/exhibition">
             Exhibition
           </a>
         </div>
@@ -49,7 +49,7 @@ export default {
 }
 
 .navbar-item img {
-  height: 2.5rem;
+  height: 3rem;
   width: auto;
   margin-left: 2rem;
 }

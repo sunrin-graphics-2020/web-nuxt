@@ -5,11 +5,8 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title">
-            Using .navbar
+            2020년 선린인터넷고등학교 멀티미디어 졸업전시회
           </h1>
-          <h2 class="subtitle">
-            Works! :)
-          </h2>
         </div>
       </div>
     </section>

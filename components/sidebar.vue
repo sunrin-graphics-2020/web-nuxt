@@ -17,7 +17,7 @@
         <input id="Product" v-model="picked" type="radio" value="프로덕트 디자인">
         <label for="Product">Product</label>
         <input id="UI/UXDesign" v-model="picked" type="radio" value="UI/UX 디자인">
-        <label for="UI/UXDesign">UI/UXDesign</label>
+        <label for="UI/UXDesign">UI/UX Design</label>
       </div>
     </div>
   </div>
