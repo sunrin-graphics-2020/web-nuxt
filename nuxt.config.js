@@ -30,6 +30,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/carmen-sans-cufonfonts-webfont/style.css'
   ],
 
   // static router path
@@ -63,7 +64,8 @@ export default {
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-lazy-load'
   ],
   /*
   ** Axios module configuration
@@ -71,7 +73,7 @@ export default {
   */
   axios: {},
   generate: {
-    routes: Array(57).fill().map((_, i) => `/dynamic/${i + 1}`)
+    routes: Array(57).fill().map((_, i) => `/detail/${i + 1}`)
   },
   /*
   ** Build configuration

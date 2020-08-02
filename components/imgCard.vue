@@ -1,38 +1,60 @@
 <template>
-  <div class="card column is-3">
-    <img :src="imgSrc">
-
-    <div class="middle">
-      <div class="text">
-        <p class="author">
-          {{ author }}
-        </p>
-        {{ description }}
+  <!-- 태블릿 - column 4  -->
+  <div class="card column">
+    <a :href="urlSrc">
+      <div class="img-box">
+        <img v-lazy-load :src="imgSrc">
       </div>
-    </div>
+
+      <div class="middle">
+        <div class="text">
+          <p class="author">
+            {{ author }}
+          </p>
+          {{ description }}
+        </div>
+      </div>
+    </a>
   </div>
 </template>
 
 <script>
+import helper from '~/assets/js/localStorageHelper'
 export default {
   props: ['id', 'author', 'description'],
   data () {
     return {
-      imgSrc: `/2020/work/${this.id}/${this.id}.png`
+      imgSrc: '',
+      urlSrc: '/2020/detail?index=',
+      img: {}
     }
+  },
+  mounted () {
+    this.img = helper.fileData(this.id)
+    this.imgSrc = `/2020/work/${this.id}/${this.img[0]}`
+    this.urlSrc += this.id
   }
+
 }
 </script>
 
 <style lang="scss" scoped>
 $backgroundColor: "#4CAF50";
 .card {
-  height: 300px;
+  margin: 5px;
+  overflow: hidden;
+  min-width: 250px;
     .author {
       display: block;
       margin-bottom: 5px;
     }
-    img {
+    .img-box {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       overflow: hidden;
     }
 
@@ -65,7 +87,7 @@ $backgroundColor: "#4CAF50";
   color: white;
   font-size: 14px;
 
-  font-family: 'Noto Serif KR', serif;
+  font-family:'Carmen Sans Regular';
 }
 
 </style>

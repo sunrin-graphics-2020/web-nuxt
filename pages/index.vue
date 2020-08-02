@@ -1,35 +1,25 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        web-nuxt
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <section class="hero is-large is-fullheight">
+      <div class="hero-head" />
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            Using .navbar
+          </h1>
+          <h2 class="subtitle">
+            Works! :)
+          </h2>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
 import helper from '~/assets/js/localStorageHelper'
 export default {
+  components: { },
   mounted () {
     helper.removeData()
     helper.fetchData()
