@@ -44,6 +44,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+
   ],
   /*
   ** Auto import components
@@ -73,7 +74,7 @@ export default {
   */
   axios: {},
   generate: {
-    routes: Array(57).fill().map((_, i) => `/detail/${i + 1}`)
+    routes: Array(57).fill().map((_, i) => `/detail?index=${i + 1}`)
   },
   /*
   ** Build configuration

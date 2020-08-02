@@ -18,10 +18,10 @@
       </div>
       <div id="navMenu" :class="{ 'is-active': showNav }" class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="/2020/social">
             Social
           </a>
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="/2020/contact">
             Contact
           </a>
           <a class="navbar-item" href="#">
@@ -59,6 +59,7 @@ export default {
 .navbar-item,
 .navbar-link {
   font-size: 1rem;
+  color: #293682;
 }
 .navbar-item img {
   max-height: 10rem;
@@ -67,8 +68,14 @@ export default {
   background-color: rgba(255,255,255,0.5);
 }
 
- @media (max-width: 768px) {
-
- }
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+  .navbar-item img {
+      height: 1.5rem;
+    }
+  }
 
 </style>

@@ -44,6 +44,8 @@ $backgroundColor: "#4CAF50";
   margin: 5px;
   overflow: hidden;
   min-width: 250px;
+  max-width: 250px;
+  height: auto;
     .author {
       display: block;
       margin-bottom: 5px;
@@ -89,5 +91,11 @@ $backgroundColor: "#4CAF50";
 
   font-family:'Carmen Sans Regular';
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+      max-width: 1000px;
+    }
+  }
 
 </style>
