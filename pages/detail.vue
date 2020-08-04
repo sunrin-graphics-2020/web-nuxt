@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-    <div class="column is-1" />
+    <div class="column is-1 is-hidden-mobile" />
     <div class="column is-8">
       <div class="image-box">
         <img v-for="(data,idx) in img" :key="idx" v-lazy-load :src="imgSrc(idx)">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="column is-3">
-      <div class="sticky has-text-centered">
+      <div class="sticky is-hidden-mobile has-text-centered">
         <p v-for="index in name.length" :key="index">
           {{ name[index-1] }}
           {{ email[index-1] }}

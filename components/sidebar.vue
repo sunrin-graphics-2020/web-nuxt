@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="has-text-centered">
+    <div style="side-bar">
       <div class="option-box">
         <input id="Video" v-model="picked" type="radio" value="영상">
         <label for="Video" onclick="">Video</label>
@@ -12,8 +12,8 @@
         <label for="Branding">Branding</label>
         <input id="Illustration" v-model="picked" type="radio" value="일러스트레이션">
         <label for="Illustration">Illustration</label>
-        <input id="Product" v-model="picked" type="radio" value="캐릭터 디자인">
-        <label for="Product">Character</label>
+        <input id="Character" v-model="picked" type="radio" value="캐릭터 디자인">
+        <label for="Character">Character</label>
         <input id="Product" v-model="picked" type="radio" value="프로덕트 디자인">
         <label for="Product">Product</label>
         <input id="UI/UXDesign" v-model="picked" type="radio" value="UI/UX 디자인">
@@ -24,8 +24,6 @@
 </template>
 
 <script>
-// mobile 935
-// tablet :
 export default {
   data () {
     return {
@@ -65,7 +63,9 @@ export default {
   }
 }
 .option-box {
-  margin-top: 5rem;
+  position: fixed;
+  margin-top: 0px;
+  margin-left: 5rem;
   input {
     display: none;
   }
@@ -77,15 +77,19 @@ export default {
   }
 }
 
+.side-bar {
+  margin-left:2rem;
+}
+
 @media screen and (max-width: 768px) {
     .option-box {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      position: relative;
+      display: block;
+      margin:0;
       label {
       display: inline;
       margin: 1rem;
       }
-
     }
   }
 </style>

@@ -34,7 +34,6 @@ export default {
     this.imgSrc = `/2020/work/${this.id}/${this.img[0]}`
     this.urlSrc += this.id
   }
-
 }
 </script>
 

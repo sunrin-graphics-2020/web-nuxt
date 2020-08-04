@@ -10,7 +10,7 @@
       <p>선린인터넷고등학교 3호관 2층 디자인실습실</p>
       <p>Tel. 713-6213 | Fax. 704-0960</p>
     </div>
-    <div class="column text-box">
+    <div class="column text-box is-hidden-mobile">
       <p>졸업준비위원회</p>
       <p>이소월 박정우 권신학 길민종</p>
       <p>이충혁 이성인</p>
@@ -24,6 +24,7 @@
 
 <style lang="scss" scoped>
 .footer {
+  margin-top: 15rem;
   background-color: #808080;
   padding-bottom: 0rem;
   padding-top: 1rem;
@@ -43,9 +44,19 @@
     place-content: center;
     align-items: center;
 }
+
 p {
    font-family:'Carmen Sans Regular';
    color: #FFFFFF;
    font-size: 14px;
 }
+
+@media screen and (max-width: 768px) {
+    .footer{
+  display: flex;
+}
+p{
+  font-size: 12px;
+}
+  }
 </style>

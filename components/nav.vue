@@ -56,16 +56,13 @@ export default {
 .navbar-item.brand-text {
   font-weight: 300;
 }
-.navbar-item,
-.navbar-link {
+.navbar-item {
   font-size: 1rem;
   color: #293682;
+  font-family:'Carmen Sans Regular';
 }
 .navbar-item img {
   max-height: 10rem;
-}
-.container {
-  background-color: rgba(255,255,255,0.5);
 }
 
 @media screen and (max-width: 768px) {

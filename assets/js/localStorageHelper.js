@@ -14,23 +14,20 @@ const helper = {
   checkData () {
     if (localStorage.getItem('user') === null || localStorage.getItem('filelist') === null) {
       return false
-    } else {
+    }
+    // data file changed (add index)
+    if (JSON.parse(localStorage.user).data[1].idx) {
       return true
     }
+    return false
   },
   async fetchData () {
     if (this.checkData() === false) {
-      console.log('데이터 없음')
       try {
         const res = await axios.get('/2020/data.json')
-        console.log(res)
         localStorage.setItem('user', JSON.stringify(res))
-
         const filelist = await axios.get('/2020/file.json')
-        console.log(filelist)
         localStorage.setItem('filelist', JSON.stringify(filelist))
-
-        console.log(this.checkData())
         return 205
       } catch {
         return 501
