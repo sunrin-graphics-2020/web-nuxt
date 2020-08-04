@@ -12,13 +12,21 @@ const helper = {
     localStorage.removeItem('filelist')
   },
   checkData () {
+    /*
+        const jsonVersion = await axios.get('/2020/version.json')
     if (localStorage.getItem('user') === null || localStorage.getItem('filelist') === null) {
       return false
     }
-    // data file changed (add index)
-    if (JSON.parse(localStorage.user).data[1].idx) {
+    if (!localStorage.getItem('version')) {
+      localStorage.setItem('version', String(jsonVersion.data.version))
+      console.log(String(jsonVersion.data.version))
+      return false
+    }
+    if (localStorage.getItem('version') === jsonVersion.data.version) {
       return true
     }
+    return false
+    */
     return false
   },
   async fetchData () {
