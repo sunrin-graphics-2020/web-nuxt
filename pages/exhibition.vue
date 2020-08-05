@@ -39,7 +39,8 @@ export default {
   },
   async mounted () {
     await helper.fetchData()
-    this.jsonData = helper.userData()
+    this.jsonData = helper.user()
+    console.log(this.jsonData)
   },
   methods: {
     update (data) {
@@ -75,5 +76,14 @@ export default {
     top: 50%;
     z-index: 100;
 }
-
+.is-8 {
+  padding: 0;
+  padding-left: 5px;
+}
+@media screen and (min-width: 769px) and (max-width: 787px) {
+.is-8 {
+  margin-left: 10rem;
+      width: 250px;
+}
+  }
 </style>

@@ -1,7 +1,10 @@
 import axios from 'axios'
 
 const helper = {
-  userData () {
+  userData (id) {
+    return JSON.parse(localStorage.user).data[id]
+  },
+  user (id) {
     return JSON.parse(localStorage.user).data
   },
   fileData (id) {
@@ -11,27 +14,30 @@ const helper = {
     localStorage.removeItem('user')
     localStorage.removeItem('filelist')
   },
+  async checkVersion () {
+    const jsonVersion = await axios.get('/2020/version.json')
+    if (localStorage.getItem('version')) {
+      if (localStorage.getItem('version') === String(jsonVersion.data.version)) {
+        return true
+      } else {
+        localStorage.setItem('version', String(jsonVersion.data.version))
+        return false
+      }
+    } else {
+      localStorage.setItem('version', String(jsonVersion.data.version))
+      return false
+    }
+  },
   checkData () {
-    /*
-        const jsonVersion = await axios.get('/2020/version.json')
     if (localStorage.getItem('user') === null || localStorage.getItem('filelist') === null) {
       return false
     }
-    if (!localStorage.getItem('version')) {
-      localStorage.setItem('version', String(jsonVersion.data.version))
-      console.log(String(jsonVersion.data.version))
-      return false
-    }
-    if (localStorage.getItem('version') === jsonVersion.data.version) {
-      return true
-    }
-    return false
-    */
-    return false
+    return true
   },
   async fetchData () {
-    if (this.checkData() === false) {
+    if (this.checkData() === false || this.checkVersion === false) {
       try {
+        console.log('fetch data')
         const res = await axios.get('/2020/data.json')
         localStorage.setItem('user', JSON.stringify(res))
         const filelist = await axios.get('/2020/file.json')
@@ -41,6 +47,7 @@ const helper = {
         return 501
       }
     } else {
+      console.log('데이터 존재')
       return 200
     }
   }

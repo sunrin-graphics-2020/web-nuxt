@@ -31,7 +31,7 @@ export default {
   },
   mounted () {
     this.img = helper.fileData(this.id)
-    this.imgSrc = `/2020/work/${this.id}/${this.img[0]}`
+    this.imgSrc = `/2020/thumbnail/thumbnail${this.id}.png`
     this.urlSrc += this.id
   }
 }
@@ -55,8 +55,11 @@ $backgroundColor: "#4CAF50";
       display: flex;
       align-items: center;
       justify-content: center;
-
       overflow: hidden;
+        img {
+          height: auto;
+          width: 100%;
+      }
     }
 
   &:hover img {
