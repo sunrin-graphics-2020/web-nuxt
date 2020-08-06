@@ -16,6 +16,7 @@ const helper = {
   },
   async checkVersion () {
     const jsonVersion = await axios.get('/2020/version.json')
+    console.log(String(jsonVersion.data.version))
     if (localStorage.getItem('version')) {
       if (localStorage.getItem('version') === String(jsonVersion.data.version)) {
         return true
@@ -35,7 +36,7 @@ const helper = {
     return true
   },
   async fetchData () {
-    if (this.checkData() === false || this.checkVersion === false) {
+    if (this.checkData() === false || await this.checkVersion() === false) {
       try {
         console.log('fetch data')
         const res = await axios.get('/2020/data.json')

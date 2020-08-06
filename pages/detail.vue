@@ -16,23 +16,19 @@
         <p class="description">
           {{ description }}
         </p>
-        <div v-for="index in name.length" :key="index" class="is-hidden-touch user">
+        <div v-show="video" class="video-responsive">
+          <iframe width="420" height="315" :src="video" frameborder="0" allowfullscreen />
+        </div>
+        <div v-for="index in name.length" :key="index" class="is-hidden-tablet user">
           <p>{{ name[index-1] }}</p>
           <p>{{ email[index-1] }}</p>
           <p>{{ etc[index-1] }}</p>
         </div>
-        {{ video }}
-        <div class="video-responsive">
-          <iframe width="420" height="315" :src="video" frameborder="0" allowfullscreen />
-        </div>
-        <!--
-        <youtube v-if="video" class="video-responsive" :video-id="video" />
-        -->
       </div>
     </div>
 
     <div class="column is-3">
-      <div class="sticky is-hidden-desktop has-text-centered">
+      <div class="sticky is-hidden-mobile has-text-centered">
         <p v-for="index in name.length" :key="index">
           {{ name[index-1] }}
           {{ email[index-1] }}
@@ -64,15 +60,14 @@ export default {
   },
   async mounted () {
     await helper.fetchData()
-    this.jsonData = helper.userData(this.id)
+    this.jsonData = helper.userData(this.id - 1) // start index 0
     if (this.jsonData.video) {
-      // this.video = getIdFromURL(this.jsonData.video)
       this.video = this.jsonData.video
     } else {
       this.video = false
     }
     this.userInfo()
-    this.img = helper.fileData(this.id)
+    this.img = helper.fileData(this.id) // start index 1
   },
   methods: {
     userInfo () {
@@ -102,6 +97,7 @@ export default {
     padding-bottom:56.25%;
     position:relative;
     height:0;
+    margin-top: 10px;
 }
 .video-responsive iframe{
     left:0;
@@ -110,7 +106,11 @@ export default {
     width:100%;
     position:absolute;
 }
-
+.youtube {
+  margin-top: 10px;
+  width: 64px;
+  height: auto;
+}
 .image-box {
   img {
     width: 100%;
