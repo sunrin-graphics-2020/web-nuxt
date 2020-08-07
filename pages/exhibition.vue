@@ -14,6 +14,7 @@
           v-for="(data,index) in jsonData"
           :id="index+1"
           :key="index"
+          :hrefid="jsonData[index]['idx']+1"
           :style="listStyle(index)"
           :author="jsonData[index]['이름(영문이름)']"
           :description="jsonData[index]['작품설명']"

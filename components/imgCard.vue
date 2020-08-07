@@ -21,7 +21,7 @@
 <script>
 import helper from '~/assets/js/localStorageHelper'
 export default {
-  props: ['id', 'author', 'description'],
+  props: ['id', 'author', 'description', 'hrefid'],
   data () {
     return {
       imgSrc: '',
@@ -32,7 +32,7 @@ export default {
   mounted () {
     this.img = helper.fileData(this.id)
     this.imgSrc = `/2020/thumbnail/thumbnail${this.id}.png`
-    this.urlSrc += this.id
+    this.urlSrc += this.hrefid
   }
 }
 </script>

@@ -16,8 +16,16 @@
         <p class="description">
           {{ description }}
         </p>
-        <div v-show="video" class="video-responsive">
-          <iframe width="420" height="315" :src="video" frameborder="0" allowfullscreen />
+
+        <div v-if="video" class="video-responsive">
+          <iframe
+            v-if="video"
+            width="420"
+            height="315"
+            :src="video"
+            frameborder="0"
+            allowfullscreen
+          />
         </div>
         <div v-for="index in name.length" :key="index" class="is-hidden-tablet user">
           <p>{{ name[index-1] }}</p>
@@ -42,6 +50,7 @@
 <script>
 // import { getIdFromURL } from 'vue-youtube-embed'
 import helper from '~/assets/js/localStorageHelper'
+import router from '~/assets/js/videoRouter'
 export default {
   data () {
     return {
@@ -60,11 +69,15 @@ export default {
   },
   async mounted () {
     await helper.fetchData()
+    if (this.id >= 1 && this.id <= 15) {
+      this.id = router.videoUrl(this.id)
+    }
+    console.log(this.id)
     this.jsonData = helper.userData(this.id - 1) // start index 0
     if (this.jsonData.video) {
       this.video = this.jsonData.video
     } else {
-      this.video = false
+      this.video = ''
     }
     this.userInfo()
     this.img = helper.fileData(this.id) // start index 1
